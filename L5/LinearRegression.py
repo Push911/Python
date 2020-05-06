@@ -5,6 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 
 maxMovies = [10, 100, 1000, 10000, 100000]
+mtr = []
 ratingscsv = pd.read_csv("ml-latest-small/ratings.csv")
 moviecsv = pd.read_csv("ml-latest-small/movies.csv")
 
@@ -35,24 +36,16 @@ for maxMov in maxMovies:
     reg = LinearRegression().fit(defaultMatrix, rating[:-15])
     predictionMatrix = createMatrix(maxMov, users[-15:])
     prediction = reg.predict(predictionMatrix)
-
-    plt.scatter(np.arange(1, 16), prediction, label="prediction")
-    plt.scatter(np.arange(1, 16), rating[-15:], label="expectation")
-    if maxMov == 10:
-        plt.xlabel("First 15 users of 15 movies")
-        plt.title("Plotting first 15 users")
-    elif maxMov == 100:
-        plt.xlabel("Last 15 users of 100 movies")
-        plt.title("Plotting last 15 users of 100")
-    elif maxMov == 1000:
-        plt.xlabel("Last 15 users of 1000 movies")
-        plt.title("Plotting last 15 users of 1000")
-    elif maxMov == 10000:
-        plt.xlabel("Last 15 users of 10000 movies")
-        plt.title("Plotting last 15 users of 10000")
-    else:
+    if maxMov == 100000:
+        plt.scatter(np.arange(1, 16), prediction, label="prediction")
+        plt.scatter(np.arange(1, 16), rating[-15:], label="expectation")
         plt.xlabel("Last 15 users of 100000 movies")
         plt.title("Plotting last 15 users of 100000")
-    plt.ylabel("Ratings")
-    plt.legend()
-    plt.show()
+        plt.ylabel("Ratings")
+        plt.legend()
+        # for x in predictionMatrix:
+        #     mtr.append(x)
+        # m, b = np.polyfit(mtr[:-15], users[:-15], 1)
+        # plt.plot(mtr[-15:], m * np.array(mtr[-15:]) + b)
+        plt.show()
+        print(prediction)

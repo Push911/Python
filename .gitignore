@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Project/PneumoniaDetect.ipynb
+Pr/PerceptronWithHL.py
+Project/PneumoniaDetect.py
+Project/Pr.py

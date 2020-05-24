@@ -3,10 +3,10 @@ import numpy as np
 np.random.seed(1)
 np.set_printoptions(precision=6, suppress=True)
 
-trainInput = np.array([[0, 0, 1],
-                       [1, 1, 1],
-                       [1, 0, 1],
-                       [0, 1, 1]])
+trainInput = np.array([[0, 0],
+                       [0, 1],
+                       [1, 0],
+                       [1, 1]])
 
 trainOutput = np.array([[0, 1, 1, 0]]).T
 
@@ -62,12 +62,6 @@ def neuralNetwork(hidFunc, hidDerFunc, outFunc, outDerFunc):
     print("Hidden weights\n", synapticWeightsHidden)
     print("Output weights\n", synapticWeightsOutput)
     print("Predicted output\n", predictedOutput)
-
-    newInput = np.array([1, 1, 0]), np.array([0, 1, 1])
-    for newInput in newInput:
-        hidLayer = sigmoid(np.dot(newInput, synapticWeightsHidden))
-        output = sigmoid(np.dot(hidLayer, synapticWeightsOutput))
-        print("New situation {}, with same weights: ".format(newInput), output)
 
 
 neuralNetwork("relu", "derivative Relu", "relu", "derivative Relu")

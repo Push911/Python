@@ -35,6 +35,7 @@ def neuralNetwork(hidFunc, hidDerFunc, outFunc, outDerFunc):
     print("Testing for attributes: [{}] used as hidden function, "
           "[{}] used as derivative for hidden function, [{}] used as out function, "
           "[{}] used as  derivative for out function\n".format(hidFunc, hidDerFunc, outFunc, outDerFunc))
+
     for i in range(2000):
         # Feedforward
         hiddenLayerWeights = np.dot(trainInput, synapticWeightsHidden)

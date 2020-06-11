@@ -74,19 +74,14 @@ def parabola():
     trainOut = np.reshape(y, (len(y), 1))
     testX = np.linspace(-50, 50, 101)
     testInp = np.reshape(testX, (len(testX), 1))
-    fig = plt.figure()
-    ax1 = fig.add_subplot(2, 1, 1)
-    ax1.set_title("Original")
-    ax1.scatter(x, y)
-
-    ax2 = fig.add_subplot(2, 2, 2)
-    ax2.set_title("Aproximated for original input")
-
+    fig, axs = plt.subplots(3)
+    axs[0].set_title("Original")
+    axs[0].scatter(x, y)
+    axs[1].set_title("Aproximated for original input")
     predictedOut, testOut = neuralNetwork(trainInp, trainOut, sigmoid, sigmoidDerivative, relu, reluDerivative, testInp)
-    ax2.scatter(trainInp, predictedOut)
-    ax3 = fig.add_subplot(2, 1, 2)
-    ax3.set_title("Aproximated for testing input")
-    ax3.scatter(testInp, testOut)
+    axs[1].scatter(trainInp, predictedOut)
+    axs[2].set_title("Aproximated for testing input")
+    axs[2].scatter(testInp, testOut)
     plt.show()
 
 
@@ -97,19 +92,14 @@ def sin():
     trainOut = np.reshape(y, (len(y), 1))
     testX = np.linspace(0, 2, 161)
     testInp = np.reshape(testX, (len(testX), 1))
-    fig = plt.figure()
-    ax1 = fig.add_subplot(2, 1, 1)
-    ax1.set_title("Original")
-    ax1.scatter(x, y)
-
-    ax2 = fig.add_subplot(2, 2, 2)
-    ax2.set_title("Aproximated for original input")
-
+    fig, axs = plt.subplots(3)
+    axs[0].set_title("Original")
+    axs[0].scatter(x, y)
+    axs[1].set_title("Aproximated for original input")
     predictedOut, testOut = neuralNetwork(trainInp, trainOut, sigmoid, sigmoidDerivative, relu, reluDerivative, testInp)
-    ax2.scatter(trainInp, predictedOut)
-    ax3 = fig.add_subplot(2, 1, 2)
-    ax3.set_title("Aproximated for testing input")
-    ax3.scatter(testInp, testOut)
+    axs[1].scatter(trainInp, predictedOut)
+    axs[2].set_title("Aproximated for testing input")
+    axs[2].scatter(testInp, testOut)
     plt.show()
 
 
